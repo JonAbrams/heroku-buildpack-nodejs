@@ -17,7 +17,8 @@ Here's an overview of what this buildpack does:
 - Installs `bower_components` in `front/`.
 - Caches the `bower_components` directory across builds for fast deploys (just like it does for `node_modules`).
 - Doesn't use either cache if `node_modules` or `bower_components` are checked into version control.
-
+- Auto-generates a Procfile in the root of your app if you don't have one. Has one line: `web: synth prod`
+- 
 For more technical details, see the [heavily-commented compile script](https://github.com/JonAbrams/heroku-buildpack-synth/blob/master/bin/compile).
 
 Usage
