@@ -3,6 +3,10 @@ Heroku Buildpack for Synth
 
 This is the [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for [Synth](http://www.synthjs.com) web apps.
 
+Requirements
+------------
+
+Requires that your app was made using [Synth](http://www.synthjs.com). Make sure that your app is using at least version `0.5.2` as specified in your `back/package.json` file.
 
 How it Works
 ------------
@@ -17,7 +21,7 @@ Here's an overview of what this buildpack does:
 - Installs `bower_components` in `front/`.
 - Caches the `bower_components` directory across builds for fast deploys (just like it does for `node_modules`).
 - Doesn't use either cache if `node_modules` or `bower_components` are checked into version control.
-- Auto-generates a Procfile in the root of your app if you don't have one. Has one line: `web: synth prod`
+- Auto-generates a Procfile in the root of your app if you don't have one. Has one line: `web: synth prod` (launches Synth server in production mode)
 - 
 For more technical details, see the [heavily-commented compile script](https://github.com/JonAbrams/heroku-buildpack-synth/blob/master/bin/compile).
 
