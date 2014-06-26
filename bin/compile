@@ -82,7 +82,7 @@ cd $build_dir/front
 # rebuild any native deps. Otherwise, restore from the build cache.
 if test -d $build_dir/front/bower_components; then
   status "Found existing bower_components directory; skipping cache"
-elif test -d $cache_dir/synth/node_modules; then
+elif test -d $cache_dir/synth/bower_components; then
   status "Restoring bower_components directory from cache"
   cp -r $cache_dir/synth/bower_components $build_dir/front/
 
@@ -127,6 +127,12 @@ mkdir -p $cache_dir/synth
 if test -d $build_dir/back/node_modules; then
   status "Caching node_modules directory for future builds"
   cp -r $build_dir/back/node_modules $cache_dir/synth
+fi
+
+# If app has a bower_components directory, cache it.
+if test -d $build_dir/front/bower_components; then
+  status "Caching bower_components directory for future builds"
+  cp -r $build_dir/front/bower_components $cache_dir/synth
 fi
 
 # Copy goodies to the cache
