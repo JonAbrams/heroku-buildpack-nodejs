@@ -109,7 +109,7 @@ fi
 
   status "Installing front-end dependencies using bower"
   cd $build_dir/front
-  bower install
+  bower install -F -p
 )
 
 # Persist goodies like node-version in the slug

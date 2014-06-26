@@ -1,7 +1,7 @@
 Heroku Buildpack for Synth
 ============================
 
-This is the [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for [Synth](http://www.synthjs.com) apps.
+This is the [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for [Synth](http://www.synthjs.com) web apps.
 
 
 How it Works
