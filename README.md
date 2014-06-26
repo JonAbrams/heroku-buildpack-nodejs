@@ -9,20 +9,16 @@ How it Works
 
 Here's an overview of what this buildpack does:
 
-- Uses the [semver.io](https://semver.io) webservice to find the latest version of node that satisfies the [engines.node semver range](https://npmjs.org/doc/json.html#engines) in your package.json.
-- Allows any recent version of node to be used, including [pre-release versions](https://semver.io/node.json).
-- Uses an [S3 caching proxy](https://github.com/heroku/s3pository#readme) of nodejs.org for faster downloads of the node binary.
-- Discourages use of dangerous semver ranges like `*` and `>0.10`.
-- Uses the version of `npm` that comes bundled with `node`.
-- Puts `node` and `npm` on the `PATH` so they can be executed with [heroku run](https://devcenter.heroku.com/articles/one-off-dynos#an-example-one-off-dyno).
-- Caches the `node_modules` directory across builds for fast deploys.
-- Caches the `bower_components` directory across builds for fast deploys.
-- Doesn't use the cache if `node_modules` is checked into version control.
-- Runs `npm rebuild` if `node_modules` is checked into version control.
-- Always runs `npm install` to ensure [npm script hooks](https://npmjs.org/doc/misc/npm-scripts.html) are executed.
-- Always runs `npm prune` after restoring cached modules to ensure cleanup of unused dependencies.
+- Detects if your app is a Synth app by looking to see if you have a `synth.json` file in the root of your project.
+- Does all the stuff that the [Official Heroku Node.js Buildpack](https://github.com/heroku/heroku-buildpack-nodejs) does
+- Read `package.json` from the `back/` directory.
+- Installs `node_modules` in `back/`.
+- Reads `bower.json` in `front/`.
+- Installs `bower_components` in `front/`.
+- Caches the `bower_components` directory across builds for fast deploys (just like it does for `node_modules`).
+- Doesn't use either cache if `node_modules` or `bower_components` are checked into version control.
 
-For more technical details, see the [heavily-commented compile script](https://github.com/heroku/heroku-buildpack-nodejs/blob/master/bin/compile).
+For more technical details, see the [heavily-commented compile script](https://github.com/JonAbrams/heroku-buildpack-synth/blob/master/bin/compile).
 
 Usage
 -------
