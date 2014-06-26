@@ -24,18 +24,13 @@ Here's an overview of what this buildpack does:
 
 For more technical details, see the [heavily-commented compile script](https://github.com/heroku/heroku-buildpack-nodejs/blob/master/bin/compile).
 
-Hacking
+Usage
 -------
 
-To make changes to this buildpack, fork it on Github. Push up changes to your fork, then create a new Heroku app to test it, or configure an existing app to use your buildpack:
-
 ```
-# Create a new Heroku app that uses your buildpack
-heroku create --buildpack <your-github-url>
+# Create a new Heroku app that uses this buildpack
+heroku create --buildpack https://github.com/JonAbrams/heroku-buildpack-synth -a <your_apps_name>
 
-# Configure an existing Heroku app to use your buildpack
-heroku config:set BUILDPACK_URL=<your-github-url>
-
-# You can also use a git branch!
-heroku config:set BUILDPACK_URL=<your-github-url>#your-branch
+# Configure an existing Heroku app to use this buildpack
+heroku config:set BUILDPACK_URL=https://github.com/JonAbrams/heroku-buildpack-synth
 ```
