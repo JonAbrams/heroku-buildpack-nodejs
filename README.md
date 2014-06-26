@@ -10,8 +10,8 @@ How it Works
 Here's an overview of what this buildpack does:
 
 - Detects if your app is a Synth app by looking to see if you have a `synth.json` file in the root of your project.
-- Does all the stuff that the [Official Heroku Node.js Buildpack](https://github.com/heroku/heroku-buildpack-nodejs) does
-- Read `package.json` from the `back/` directory.
+- Does all the stuff that the [Official Heroku Node.js Buildpack](https://github.com/heroku/heroku-buildpack-nodejs) does plus the following.
+- Reads `package.json` from the `back/` directory.
 - Installs `node_modules` in `back/`.
 - Reads `bower.json` in `front/`.
 - Installs `bower_components` in `front/`.
