@@ -2,7 +2,7 @@
 # bin/detect <build-dir>
 
 if [ -f $1/synth.json ]; then
-  echo "Node" && exit 0
+  echo "Synth" && exit 0
 else
   echo "no" && exit 1
 fi
