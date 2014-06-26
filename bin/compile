@@ -96,9 +96,6 @@ fi
     export_env_dir $env_dir
   fi
 
-  status "Installing synth"
-  npm install -g synth
-
   status "Installing back-end dependencies using npm"
   # Make npm output to STDOUT instead of its default STDERR
   cd $build_dir/back
@@ -153,7 +150,7 @@ if [ ! -e $build_dir/Procfile ]; then
     echo "web: npm start" > $build_dir/Procfile
   else
     status "Procfile not found and npm start script is undefined; Add synth server to Procfile"
-    echo "web: synth prod" > $build_dir/Procfile
+    echo "web: ./back/node_modules/.bin/synth prod" > $build_dir/Procfile
   fi
 fi
 
