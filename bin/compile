@@ -147,7 +147,7 @@ if [ ! -e $build_dir/Procfile ]; then
     echo "web: npm start" > $build_dir/Procfile
   else
     status "Procfile not found and npm start script is undefined; Add synth server to Procfile"
-    echo "web: synth server" > $build_dir/Procfile
+    echo "web: synth prod -p $PORT" > $build_dir/Procfile
   fi
 fi
 
